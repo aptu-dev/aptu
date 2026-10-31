@@ -1,0 +1,14 @@
+[package]
+name = "aptu"
+version = "0.0.1"
+edition = "2021"
+description = "Placeholder for aptu.dev: machine-payable API infrastructure for autonomous agents."
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/aptu-dev/aptu"
+homepage = "https://aptu.dev"
+authors = ["Hugues Clouatre <hugues@linux.com>"]
+keywords = ["x402", "agents", "micropayments", "api"]
+categories = ["api-bindings"]
+readme = "README.md"
+
+[dependencies]
