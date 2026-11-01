@@ -11,8 +11,8 @@ baseline.
 
 ## Commands
 
-- `cargo build --locked` - build
-- `cargo test --locked` - test
+- `cargo build` - build
+- `cargo test` - test
 - `cargo clippy --profile ci --locked` - lint (CI parity)
 
 ## Conventions

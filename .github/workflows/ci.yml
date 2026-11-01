@@ -104,9 +104,9 @@ jobs:
             target
           key: cargo-${{ runner.os }}-arm64-${{ hashFiles('Cargo.lock') }}
       - name: Build
-        run: cargo build --locked
+        run: cargo build
       - name: Test
-        run: cargo test --locked
+        run: cargo test
 
   # Aggregate status check: add language-specific jobs (lint, test, build)
   # to the needs array as the repo grows; the ruleset keeps requiring only
