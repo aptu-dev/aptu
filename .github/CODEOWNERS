@@ -1,0 +1,7 @@
+# Org-default code owners (aptu-dev/.github#26, #58).
+# maintainers: code ownership for all paths.
+# security-reviewers: required reviewer gate on CI workflows and security config.
+# Repos may override this file; overrides are never overwritten by sync.
+*       @aptu-dev/core
+.github/workflows/ @aptu-dev/core
+/zizmor.yml @aptu-dev/core
