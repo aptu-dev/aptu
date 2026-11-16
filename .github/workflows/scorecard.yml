@@ -44,7 +44,11 @@ jobs:
         env:
           ENABLE_SARIF: "1"
           GITHUB_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./scorecard --repo=github.com/${{ github.repository }} --format=sarif --show-details --policy=.github/scorecard-policy.yml > results.sarif
+        # CI-Tests and SAST are excluded: ossf/scorecard#5382 - third-party app
+        # check suites (orgs with IP allow lists, e.g. mistralai) hard-fail the
+        # GraphQL ListCheckRunsForRef call and abort the whole run. Re-add both
+        # checks once upstream degrades gracefully.
+        run: ./scorecard --repo=github.com/${{ github.repository }} --format=sarif --show-details --policy=.github/scorecard-policy.yml --checks=Token-Permissions,Branch-Protection,Code-Review,Dangerous-Workflow,License,Pinned-Dependencies,Security-Policy,Contributors,Packaging,Binary-Artifacts,Signed-Releases,Dependency-Update-Tool,Fuzzing,CII-Best-Practices,Vulnerabilities,Maintained > results.sarif
 
       - name: Upload SARIF results
         uses: github/codeql-action/upload-sarif@9b3254085494b55a0f7c4c2b3d2d52cc712ce370 # v4.39.1
