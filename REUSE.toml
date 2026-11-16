@@ -29,3 +29,9 @@ path = [".github/CODEOWNERS", "CODE_OF_CONDUCT.md", "CONTRIBUTING.md", "SECURITY
 precedence = "override"
 SPDX-FileCopyrightText = "Copyright (c) 2026 aptu-dev"
 SPDX-License-Identifier = "MIT OR Apache-2.0"
+
+[[annotations]]
+path = ["*.json"]
+precedence = "override"
+SPDX-FileCopyrightText = "Copyright (c) 2026 aptu-dev"
+SPDX-License-Identifier = "MIT OR Apache-2.0"
