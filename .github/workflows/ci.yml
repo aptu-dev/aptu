@@ -13,12 +13,43 @@ permissions: {}
 jobs:
   lint-commits:
     name: Lint Commits
+    # Renovate branches carry generated commits (e.g. onboarding
+    # "Add renovate.json") that fail conventional lint; skip them.
+    if: github.actor != 'renovate[bot]'
+    runs-on: ubuntu-26.04-arm
+    timeout-minutes: 5
     permissions:
       contents: read
-    uses: aptu-dev/.github/.github/workflows/lint-commits.yml@30137316e43ca98f5be301fe3551100f72390812 # reusable lint-commits
-    with:
-      base-sha: ${{ github.event.pull_request.base.sha }}
-      head-sha: ${{ github.event.pull_request.head.sha }}
+    # Inline job, not the aptu-dev/.github reusable workflow: this repo is
+    # public and GitHub forbids public repos from calling reusable workflows
+    # stored in private repositories (workflow resolution hard-fails).
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - name: Set up Node.js
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: "24"
+      - name: Cache commitlint
+        id: cache-commitlint
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: node_modules
+          key: commitlint-${{ runner.arch }}-21.2.1-21.2.0
+      - name: Install commitlint
+        if: steps.cache-commitlint.outputs.cache-hit != 'true'
+        run: |
+          npm install --no-save --no-audit --no-fund \
+            @commitlint/cli@21.2.1 \
+            @commitlint/config-conventional@21.2.0
+      - name: Validate commit messages
+        run: |
+          npx commitlint \
+            --from ${{ github.event.pull_request.base.sha }} \
+            --to ${{ github.event.pull_request.head.sha }} \
+            --verbose
 
   secret-scan:
     name: Secret Scan
