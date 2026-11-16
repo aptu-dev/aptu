@@ -32,7 +32,10 @@ policies:
     mode: enforced
   SAST:
     score: 10
-    mode: enforced
+    # Disabled: ossf/scorecard#5382 - third-party app check suites (orgs with
+    # IP allow lists, e.g. mistralai) hard-fail the GraphQL ListCheckRunsForRef
+    # call and abort the whole run. Re-enable once upstream degrades gracefully.
+    mode: disabled
   Contributors:
     score: 10
     mode: disabled
@@ -59,7 +62,8 @@ policies:
     mode: enforced
   CI-Tests:
     score: 10
-    mode: enforced
+    # Disabled: same upstream failure as SAST above (ossf/scorecard#5382).
+    mode: disabled
   Maintained:
     score: 1
     mode: enforced
