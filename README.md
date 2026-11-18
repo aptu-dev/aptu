@@ -1,7 +1,5 @@
 <p align="center">
-  <a href="https://github.com/aptu-dev/aptu/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/badge/CI-passing-brightgreen.svg?style=for-the-badge" height="20"></a>
-  <a href="https://github.com/aptu-dev/aptu/actions/workflows/scorecard.yml"><img alt="Scorecard" src="https://img.shields.io/badge/Scorecard-enabled-blue.svg?style=for-the-badge" height="20"></a>
-  <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT%20OR%20Apache--2.0-blue.svg?style=for-the-badge" height="20"></a>
+  <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT%20OR%20Apache--2.0-blue.svg?style=for-the-badge" height="28"></a>
 </p>
 
 <h1 align="center">aptu</h1>
