@@ -1,4 +1,4 @@
-# Golden reusable workflow (aptu-dev/.github#15): OpenSSF Scorecard.
+# Golden reusable workflow (clouatre-labs/.github#86): OpenSSF Scorecard.
 name: Scorecard
 
 on:
@@ -15,7 +15,7 @@ permissions:
 
 jobs:
   scorecard:
-    uses: aptu-dev/.github/.github/workflows/scorecard.yml@b3ed4a8792484adf47c3e955c71a938ec5f67af0
+    uses: clouatre-labs/.github/.github/workflows/scorecard.yml@9b42cd352620915a6d484806db9ef1b589d65367
     with:
       runner_label: ubuntu-26.04-arm
     permissions:

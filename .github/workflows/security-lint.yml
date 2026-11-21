@@ -1,0 +1,28 @@
+# Reusable security and lint checks (secret scan, zizmor, REUSE, markdownlint)
+# provided by clouatre-labs/.github; see clouatre-labs/.github#86.
+# Replaces the former inline markdown-lint.yml and reuse.yml jobs.
+name: Security & Lint
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch: {}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: {}
+
+jobs:
+  security-lint:
+    name: Security Result
+    permissions:
+      contents: read
+    uses: clouatre-labs/.github/.github/workflows/security-lint.yml@10fb56d59b66dd4e595cc256a420321a71f5e9dd
+    with:
+      label: ubuntu-26.04-arm
