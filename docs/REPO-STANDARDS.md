@@ -30,8 +30,6 @@ the (few) overrides.
 | `.github/workflows/ci.yml` | Commitlint, secret scan, cargo build + test; aggregates into `CI Result` |
 | `.github/workflows/markdown-lint.yml` | markdownlint-cli2 on PRs to `main` |
 | `.github/workflows/reuse.yml` | FSFE reuse-action compliance check |
-| `.github/workflows/scorecard.yml` | Weekly OpenSSF Scorecard (public repo) |
-| `.github/scorecard-policy.yml` | Scorecard SARIF policy |
 | `.github/workflows/aptu-review.yml` | AI-assisted PR review via the aptu App |
 | `.github/workflows/aptu-scan-security.yml` | Automated security scan via the aptu App |
 | `.github/workflows/aptu-triage.yml` | Automatic issue triage via the aptu App |
