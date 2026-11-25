@@ -19,7 +19,7 @@ SPDX-FileCopyrightText = "Copyright (c) 2026 aptu-dev"
 SPDX-License-Identifier = "MIT OR Apache-2.0"
 
 [[annotations]]
-path = [".github/**/*.yml", ".github/**/*.yaml", ".github/**/*.md", ".github/scorecard-policy.yml", ".commitlintrc.yml", ".markdownlint.jsonc"]
+path = [".github/**/*.yml", ".github/**/*.yaml", ".github/**/*.md", ".commitlintrc.yml", ".markdownlint.jsonc"]
 precedence = "override"
 SPDX-FileCopyrightText = "Copyright (c) 2026 aptu-dev"
 SPDX-License-Identifier = "MIT OR Apache-2.0"
